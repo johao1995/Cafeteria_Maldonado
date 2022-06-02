@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}{{title}}{% endblock %}
+{% block css %}
+{% endblock %}
+
+{% block content %}
+<section class="page-section about-heading">
+    <div class="container">
+        {% if historia|length > 0 %}
+            {% for h in historia %}
+            <img class="img-fluid rounded about-heading-img mb-3 mb-lg-0" src="{{h.image.url}}" alt="">
+            <div class="about-heading-content">
+              <div class="row">
+                <div class="col-xl-9 col-lg-10 mx-auto">
+                  <div class="bg-faded rounded p-5">
+                    <h2 class="section-heading mb-4">
+                      <span class="section-heading-upper">{{h.title}}</span>
+                      <span class="section-heading-lower">{{h.subtitle}}</span>
+                    </h2>
+                    <p>{{h.description}}</p>
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+</section>
+
+{% endblock %}
